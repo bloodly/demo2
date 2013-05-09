@@ -1,3 +1,3 @@
 function testhtml(){
-	settimeout("alert(1)",5000);
+	setTimeout("alert(1)",5000);
 }
