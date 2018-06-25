@@ -15,7 +15,9 @@
         function getLocation() {  
             //根据IP获取城市  
             var myCity = new BMap.LocalCity();  
-            myCity.get(getCityByIP);  
+            myCity.get(getCityByIP);
+            console.log('----myCity-----');
+            console.log(myCity);
   
             //获取GPS坐标  
             if (navigator.geolocation) {  
@@ -25,7 +27,9 @@
             }  
         }  
         
-        function showMap(value) {  
+        function showMap(value) {
+            console.log('----showMap-----');
+            console.log(value)
             var longitude = value.coords.longitude;  
             var latitude = value.coords.latitude;  
             map = new BMap.Map("map");  
@@ -40,13 +44,17 @@
             BMap.Convertor.translate(gpsPoint, 0, translateCallback);  
         }  
   
-        translateCallback = function (point) {  
+        translateCallback = function (point) {
+            console.log('----translateCallback-----');
+            console.log(point);
             baiduPoint = point;  
             var geoc = new BMap.Geocoder();  
             geoc.getLocation(baiduPoint, getCityByBaiduCoordinate);  
         }  
   
-        function getCityByCoordinate(rs) {  
+        function getCityByCoordinate(rs) {
+            console.log('-------getCityByCoordinate--------');
+            console.log(rs);
             gpsAddress = rs.addressComponents;  
             var address = "GPS标注：" + gpsAddress.province + "," + gpsAddress.city + "," + gpsAddress.district + "," + gpsAddress.street + "," + gpsAddress.streetNumber;  
             var marker = new BMap.Marker(gpsPoint);  // 创建标注  
@@ -65,12 +73,16 @@
         }  
   
         //根据IP获取城市  
-        function getCityByIP(rs) {  
+        function getCityByIP(rs) {
+            console.log('-------getCityByIP--------');
+            console.log(getCityByIP);
             var cityName = rs.name;  
             alert("根据IP定位您所在的城市为:" + cityName);  
         }  
   
-        function handleError(value) {  
+        function handleError(value) {
+            console.log('----handleError-----');
+            console.log(value)
             switch (value.code) {  
                 case 1:  
                     alert("位置服务被拒绝");  
