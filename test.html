@@ -2,7 +2,9 @@
 <html>  
 <head>  
     <meta charset="utf-8">  
-    <title>地理位置测试</title>  
+    <title>地理位置测试</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0Bd95431092188f8863bb2c9f03a2af2"></script>  
     <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>  
     <script type="text/javascript">  
@@ -99,13 +101,23 @@
             }  
         }  
   
-        function init() {  
+        function init() {
+            document.getElementById('map').style.height = document.documentElement.clientHeight+'px';
             getLocation();  
         }  
   
         window.onload = init;  
   
-    </script>  
+    </script>
+    <style type="text/css">
+        #map {
+            width:100%;
+            margin:0;
+            padding:0;
+            border:0;
+
+        }
+    </style>
 </head>  
 <body>  
     <div id="map" style="width:600px;height:600px;"></div>
